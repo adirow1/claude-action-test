@@ -3,6 +3,8 @@ name: Claude Issue Triage
 on:
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 jobs:
   triage:
@@ -17,4 +19,3 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           allowed_non_write_users: "*"
-          prompt: "Read this issue and add a label: bug, feature, or question."
